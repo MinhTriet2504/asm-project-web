@@ -120,17 +120,6 @@ public function editAction($id, Request $request)
     ]);
 }
 
-public function deleteAllAction($id)
-{ 
-    $em = $this->getDoctrine()->getManager();
-    $product = $em->getRepository('App\Entity\Product')->findBy(['Brand' => $id]);
-    foreach ($product as $item){    
-      $em->remove($item);
-      $em->flush();
-    }
-    return true;
-}
-
 
 }
 
