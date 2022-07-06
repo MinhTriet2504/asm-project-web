@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Brand</th>
+                <th></th>
+            </tr>
+            </thead>
+            <a href="{{ path('brand_product_create') }}"class='btn btn-default'>Add Brand</a>
+            <tbody>
+            {% for brandProduct in brandProducts %}
+                <tr>
+                    <th scope="row">{{ brandProduct.id }}</th>
+                    <td>{{ brandProduct.NameBrand }}</td>
+                    
+                    <td>
+
+
+                        <a href="{{ path('brandProduct_delete', {'id': brandProduct.id}) }}" class='btn btn-danger'>Delete</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
